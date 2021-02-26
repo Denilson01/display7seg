@@ -1,5 +1,5 @@
-#ifndef DISPLAY7SEG.H
-#define DISPLAY7SEG.H
+#ifndef DISPLAY7SEG_H
+#define DISPLAY7SEG_H
 
 
 void diplay7seg_init( void );
