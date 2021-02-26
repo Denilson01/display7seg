@@ -8,14 +8,17 @@
 
 #include <xc.h>
 
-
+void botoes_init(void)
+{
+ PORTD = 1;
+}
 
 int botao_incrementar( void )
 {
-    return(PORTDbits.RD0);
+    return(PORTDbits.RD3);
 }
 
 int botao_decrementar( void )
 {
-    return(PORTDbits.RD1);
+    return(PORTDbits.RD2);
 }

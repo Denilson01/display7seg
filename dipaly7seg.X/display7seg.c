@@ -16,7 +16,6 @@ char vetor[16] = { 0x3F, 0x06, 0x5b, 0x4F,
 void diplay7seg_init( void )
 {
     ANSELH = 0;
-    PORTD = 1;
     TRISB = 0x00;
     PORTB = 0x00;
 }

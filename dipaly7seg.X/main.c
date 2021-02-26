@@ -14,30 +14,28 @@
 
 void main(void) 
 {
-    int cont = 0;
+    char cont = 0;
     diplay7seg_init();
-    
-    while( 1 )
-    {
-        if(botao_incrementar() == 1 && botao_decrementar() == 0)
-        {       
-            display7seg( cont );        
-            delay(1000);              
-            cont++;
-            if( cont >= 16 )
-                cont = 0;
-        }
+    botoes_init();
+    char estado = 1;
    
-        if(botao_decrementar() == 1 && botao_incrementar() == 0)
-            
-        {   
-            display7seg( cont );        
-            delay(1000);              
-            cont--;
-            if( cont <= 0 )
-                cont = 16;
-        }
-                   
+    while(1)
+    {
+            switch( estado )
+            {
+                            case 1:
+                                if(botao_incrementar() == 1)
+                                    estado = 1;
+                                break;
+
+                            case 2:
+                                if(botao_incrementar()== 0)
+                                    estado = 2;
+                                break;
+
+                            case 3: 
+                                
+
+            }
     }
-    
 }
