@@ -23,9 +23,16 @@ void main(void)
     {
         switch( estado )
         {
+            case 0:
+            
+                estado = 1;
+                break;
+                
             case 1:
                     if(botao_incrementar() == 1)
                         estado = 2;
+                    if(botao_decrementar() == 1)
+                        estado = 5;
                     break;
 
             case 2:
@@ -35,15 +42,37 @@ void main(void)
 
             case 3: 
                     ++cont;
-                    estado = 0;
+                    estado = 4;
                     break;                                
                
-            display7seg(cont);
-            if(cont >= 15)
-                cont = 0;
-            if(cont <= 0)
-                cont = 15;
-  
+            case 4:       
+                    display7seg(cont);
+                    if(cont > 9)
+                    cont = 0;
+                    else
+                    estado = 1;
+                    break;
+
+            case 5:
+                if(botao_decrementar() == 0)
+                    estado = 6;
+                break;
+            case 6:
+                    --cont;
+                    estado = 7;
+                    break;
+            case 7:
+                    display7seg(cont);
+                    if(cont < 0)
+                    cont = 9;
+                    else
+                    estado = 1;
+                    break;
+                
+                
+                
+                
+                              
         }
     }
 }
